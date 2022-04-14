@@ -68,7 +68,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
 SearchBar.defaultProps = {
   className: undefined,
-  placeholderText: "Suchen",
-  placeholderTextFocused: "Suchen",
+  placeholderText: "Search for ..",
+  placeholderTextFocused: "Search for ..",
 };
 export default SearchBar;

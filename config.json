@@ -1,0 +1,6 @@
+{
+    "baseRoute": "/nasa/",
+    "api": {
+        "nasaImageUrl": "https://images-assets.nasa.gov/recent.json"
+    }
+}

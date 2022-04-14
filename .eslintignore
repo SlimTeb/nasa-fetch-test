@@ -1,0 +1,11 @@
+**/*.less
+**/*.svg
+**/*.png
+**/*.jpg
+**/*.json
+**/*.html
+node-modules
+__snapshots__
+__fixtures__
+.eslintrc.js
+webpack.config.js

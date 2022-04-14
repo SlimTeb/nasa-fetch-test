@@ -19,7 +19,6 @@
     "typeRoots": [
       "./types",
       "./client/types",
-      "./server/types",
       "./node_modules/@types"
     ]
   },

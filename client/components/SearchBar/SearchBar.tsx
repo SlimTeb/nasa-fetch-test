@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 
-import ClearIcon from "./icon-x.svg";
-import SearchIcon from "./icon-search.svg";
+import ClearIcon from "./cross.svg";
+import SearchIcon from "./search.svg";
 
 import "./SearchBar.less";
 

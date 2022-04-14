@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import React from "react";
 
-import SpinnerLogo from "./spinner_standard.svg";
+import SpinnerLogo from "./spinner.svg";
 
 import "./Spinner.less";
 

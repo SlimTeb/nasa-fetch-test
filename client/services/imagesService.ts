@@ -27,9 +27,8 @@ const getNasaImages = async () => {
 const getNasaImagesWithFilter = async (filter: Filter) => {
   let url = config.api.nasaImageSearchUrl;
   url = navigationService.addQueryParam(url, `q=${filter.query}`);
-  const mediaFilter = filter.mediaType?.join(",");
-  if (mediaFilter)
-    url = navigationService.addQueryParam(url, `media_type=${mediaFilter}`);
+  const mediaFilter = filter.mediaType.join(",");
+  url = navigationService.addQueryParam(url, `media_type=${mediaFilter}`);
   const response = await fetch(url, requestOptions);
 
   if (response.status !== 200)

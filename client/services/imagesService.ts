@@ -33,7 +33,7 @@ const getNasaImagesWithFilter = async (filter: Filter) => {
   const response = await fetch(url, requestOptions);
 
   if (response.status !== 200)
-    throw new Error(`Unable to fetch url ${config.api.nasaImageUrl}`);
+    throw new Error(`Unable to fetch url ${config.api.nasaImageSearchUrl}`);
   return await response.json();
 };
 

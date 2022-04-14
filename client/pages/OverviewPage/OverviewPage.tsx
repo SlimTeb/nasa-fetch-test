@@ -4,33 +4,30 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import ImageOverview from "../../components/ImageOverview/ImageOverview";
 import Spinner from "../../components/Spinner/Spinner";
 
-import imagesService from "../../services/imagesService";
+import useDebounce from "./hooks/useDebounce";
+import useAllItems from "./hooks/useAllItems";
+import useFilteredItems from "./hooks/useFilteredItems";
 
 type Item = {
-  data: never[];
+  data: any[];
   href: string;
   links: Array<{ href: string }>;
 };
 const cleanUpResult = (items: Item[]) =>
   items.map((item) => ({ ...item, href: item.links[0].href }));
+
 const OverviewPage = () => {
   const [searchString, setSearchString] = React.useState("");
-  const [items, setItems] = React.useState([]);
-  const [isFetching, setIsFetching] = React.useState(false);
-  React.useEffect(() => {
-    setIsFetching(true);
-    imagesService
-      .getNasaImages()
-      .then((res) => {
-        setItems(res.collection.items);
-        setIsFetching(false);
-      })
-      .catch((e) => {
-        console.log(e);
-        setIsFetching(false);
-      });
-  }, []);
+  const { allItems, isFetchingAllItems } = useAllItems(); // first render
+  const debouncedSearchTerm = useDebounce(searchString, 800);
+  const { filteredItems, isFetchingFilteredItems } =
+    useFilteredItems(debouncedSearchTerm);
 
+  const displayedItems =
+    filteredItems && filteredItems.length > 0
+      ? cleanUpResult(filteredItems)
+      : cleanUpResult(allItems);
+  const isLoading = isFetchingAllItems || isFetchingFilteredItems;
   return (
     <div>
       <SearchBar
@@ -40,10 +37,10 @@ const OverviewPage = () => {
         placeholderTextFocused="Search for ..."
         onFocus={() => console.log("focus")}
       />
-      {isFetching ? (
-        <Spinner className="SpinnerV3--onPage" />
+      {isLoading ? (
+        <Spinner className="Spinner--onPage" />
       ) : (
-        <ImageOverview images={cleanUpResult(items)} />
+        <ImageOverview images={displayedItems} />
       )}
     </div>
   );

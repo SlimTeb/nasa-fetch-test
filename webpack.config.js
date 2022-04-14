@@ -11,6 +11,8 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
+    symlinks: false,
+    modules: ["node_modules", "./client/styles"],
   },
   module: {
     rules: [

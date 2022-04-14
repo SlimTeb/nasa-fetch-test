@@ -24,7 +24,8 @@
     ]
   },
   "include": [
-    "client/app.tsx"
+    "client/app.tsx",
+    "./client/types",
   ],
   "exclude": [
     "./node_modules"

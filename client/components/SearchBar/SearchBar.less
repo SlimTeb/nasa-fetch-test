@@ -1,0 +1,77 @@
+@import (reference) 'vars.less';
+
+.SearchBar {
+  border-radius: 3px;
+  padding: 11px 12px 13px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 44px;
+  flex: 0;
+  background: #e5f0f9;
+  margin-top: 10px;
+  margin-bottom: 17px;
+  @media @large-tablets {
+    margin: 24px 0;
+  }
+
+  &-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+
+    @media @large-tablets {
+      flex-direction: row;
+    }
+  }
+
+  &-clearIcon {
+    width: 16px;
+    height: 16px;
+    color: gray;
+  }
+
+  &-icon {
+    width: 16px;
+    height: 16px;
+    @media @large-tablets {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &-iconWithValue {
+    display: none;
+    @media @large-tablets {
+      display: unset;
+    }
+  }
+
+  &-input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    height: 100%;
+    color: #000;
+    @media @large-tablets {
+      margin-left: 12px;
+      font-size: 16px;
+    }
+
+    &::placeholder {
+      color: #0271c2;
+    }
+
+    &:focus {
+      outline: none;
+
+      &::placeholder {
+        color: #00000047;
+      }
+    }
+  }
+}
